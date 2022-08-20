@@ -1,0 +1,8 @@
+{
+  "name": "find-your-cuts",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular",
+  "id": "b0084ef4"
+}

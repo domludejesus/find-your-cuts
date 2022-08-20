@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "find-your-cuts",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
