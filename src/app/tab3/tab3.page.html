@@ -23,7 +23,42 @@
     </ion-toolbar>
   </ion-header>
 
-    <ion-content [fullscreen]="true">
-    </ion-content>
-  </ion-app>  
-</body>
+  <ion-content fullscreen class="ion-padding" scroll-y="false">
+    <ion-slides>
+      <ion-slide>
+        <div class="slide">
+          <img src="https://images.unsplash.com/photo-1619632973808-4acf8041df42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1471&q=80" />
+          <h2>Welcome</h2>
+          <p>
+            Have you ever wanted a place to look at reviews of your friends best haircuts? Here we will walk you through 
+            the process of creating an account. <b> Swipe Right </b> <ion-icon name="arrow-forward-sharp"></ion-icon>
+          </p> 
+        </div>
+      </ion-slide>
+
+      <ion-slide>
+        <img src="https://images.unsplash.com/photo-1606577017430-20c1a74aa888?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80" />
+        <h2>Safety First</h2>
+        <p>
+          Remeber to treat others with respect when commenting as well as posting a review for a small buisness. Behind a screen you can't see you 
+          may be hurting someones feelings :( . Critisim is fair, but you know when it's too much <b> Swipe Right </b> <ion-icon name="arrow-forward-sharp"></ion-icon> 
+        </p>
+      </ion-slide>
+
+      <ion-slide>
+        <img src="https://images.unsplash.com/photo-1602604953727-254e9efb7348?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80" />
+        <h2> Lets Go Over Features </h2>
+        <p>
+          You have the ability to <b> Like and Share Reviews</b> as well as <b> Create, Update and Deleting Reviews</b>. <b> Swipe Right </b> <ion-icon name="arrow-forward-sharp"></ion-icon> 
+        </p>
+      </ion-slide>
+
+      <ion-slide>
+        <img src="https://images.unsplash.com/photo-1572610304424-34b7b2b46540?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80g" />
+        <h2>Create A New Account Today</h2>
+        <ion-button fill="clear"> Sign Up <ion-icon slot="start" name="person-add-sharp"></ion-icon></ion-button>
+        <ion-button fill="clear"> Login  <ion-icon slot="end" name="person-circle-sharp"></ion-icon></ion-button>
+      </ion-slide>
+    </ion-slides>
+  </ion-content>
+</ion-app>
