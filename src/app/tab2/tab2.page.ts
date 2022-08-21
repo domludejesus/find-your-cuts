@@ -3,6 +3,7 @@ import { Capacitor } from '@capacitor/core';
 import { CapacitorGoogleMaps } from '@capacitor-community/capacitor-googlemaps-native'
 import { Geolocation } from '@capacitor/geolocation';
 import { LatLng } from '@capacitor-community/capacitor-googlemaps-native/dist/esm/types/common/latlng.interface';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab2',
@@ -12,7 +13,7 @@ import { LatLng } from '@capacitor-community/capacitor-googlemaps-native/dist/es
 export class Tab2Page {
 
   @ViewChild('map') mapView: ElementRef;
-  constructor() { }
+  constructor(private alertCtrl: AlertController) { }
 
   ionViewDidEnter() {
     this.createMap();
@@ -39,10 +40,22 @@ export class Tab2Page {
       });
 
       this.showCurrentPosition();
+    });
 
-    })
+    CapacitorGoogleMaps.addListener('didTapPOIWithPlaceID', async (ev) => {
+      const result = ev.results;
+
+      const alert = await this.alertCtrl.create({
+        header: result.name,
+        message: `Place ID: ${result.placeID}`,
+        buttons: ['OK']
+
+      })
+    });
 
   }
+
+
 
   showCurrentPosition() {
     Geolocation.requestPermissions().then(async permission => {
