@@ -43,6 +43,12 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+
+	<key>NSLocationAlwaysUsageDescription</key> 
+	<string>May We Always Have Location On When In Use</string> 
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string> Do You Prefer Only While In Use </string> 
+
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<true/>
 </dict>
