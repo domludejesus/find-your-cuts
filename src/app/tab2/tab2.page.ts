@@ -2,6 +2,7 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { CapacitorGoogleMaps } from '@capacitor-community/capacitor-googlemaps-native'
 import { Geolocation } from '@capacitor/geolocation';
+import { LatLng } from '@capacitor-community/capacitor-googlemaps-native/dist/esm/types/common/latlng.interface';
 
 @Component({
   selector: 'app-tab2',
@@ -60,6 +61,25 @@ export class Tab2Page {
         zoom: 12,
         bearing: 0
       })
+    })
+  }
+
+  draw() {
+    const points: LatLng[] = [
+      {
+        latitude: 51.88,
+        longitude: 7.60,
+      },
+      {
+        latitude: 55,
+        longitude: 10,
+      }
+    ];
+
+    CapacitorGoogleMaps.addPolyline({
+      points,
+      color: '#ff00ff',
+      width: 2
     })
   }
 }
