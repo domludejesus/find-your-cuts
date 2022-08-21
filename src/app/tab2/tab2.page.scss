@@ -2,9 +2,22 @@ ion-datetime {
     margin: 80px;
 }
 
+
+capacitor-google-map {
+    display: block;
+    height: 25vh; 
+    border: 1px solid black;
+    margin: auto 20px; 
+}
+
+@media only screen 
+and (max-device-width: 600px)
+ { 
 #map {
     display: block;
     height: 25vh; 
     border: 1px solid black;
     margin: auto 20px;
 }
+
+ }

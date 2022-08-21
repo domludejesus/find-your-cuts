@@ -4,6 +4,8 @@ import { CapacitorGoogleMaps } from '@capacitor-community/capacitor-googlemaps-n
 import { Geolocation } from '@capacitor/geolocation';
 import { LatLng } from '@capacitor-community/capacitor-googlemaps-native/dist/esm/types/common/latlng.interface';
 import { AlertController } from '@ionic/angular';
+import { GoogleMap } from '@capacitor/google-maps';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-tab2',
@@ -11,14 +13,33 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['tab2.page.scss']
 })
 export class Tab2Page {
-
+  // web access google maps 
+  @ViewChild('mapweb') mapwebRef: ElementRef;
+  mapweb: GoogleMap;
+  // native app access view child 
   @ViewChild('map') mapView: ElementRef;
   constructor(private alertCtrl: AlertController) { }
 
   ionViewDidEnter() {
-    this.createMap();
+    this.createMapWeb();
   }
 
+  async createMapWeb() {
+    this.mapweb = await GoogleMap.create({
+      id: 'my-map',
+      apiKey: environment.mapsKey,
+      element: this.mapwebRef.nativeElement,
+      forceCreate: true,
+      config: {
+        center: {
+          lat: 33.6,
+          lng: -117.9,
+        },
+        zoom: 8,
+      }
+    })
+  }
+  // Native App access from here 
   createMap() {
     const boundingRect = this.mapView.nativeElement.getBoundingClientRect() as DOMRect;
     console.log("~ file: tab2.page.ts ~ Line 21 ~ HomePage ~ createMap ~boundingRect", boundingRect)
