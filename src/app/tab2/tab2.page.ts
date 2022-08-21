@@ -1,6 +1,7 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Capacitor } from '@capacitor/core';
 import { CapacitorGoogleMaps } from '@capacitor-community/capacitor-googlemaps-native'
+import { Geolocation } from '@capacitor/geolocation';
 
 @Component({
   selector: 'app-tab2',
@@ -29,6 +30,36 @@ export class Tab2Page {
       //Longitude?: Number, 
       zoom: 3,
       //liteMode?: Boolean 
+    });
+
+    CapacitorGoogleMaps.addListener('onMapReady', async () => {
+      CapacitorGoogleMaps.setMapType({
+        type: 'hybrid' // can be changed to whatever type needed 
+      });
+
+      this.showCurrentPosition();
+
+    })
+
+  }
+
+  showCurrentPosition() {
+    Geolocation.requestPermissions().then(async permission => {
+      const coordinates = await Geolocation.getCurrentPosition();
+
+      CapacitorGoogleMaps.addMarker({
+        latitude: coordinates.coords.latitude,
+        longitude: coordinates.coords.longitude,
+        title: 'Current Location',
+        snippet: 'This is you'
+      });
+
+      CapacitorGoogleMaps.setCamera({
+        latitude: coordinates.coords.latitude,
+        longitude: coordinates.coords.longitude,
+        zoom: 12,
+        bearing: 0
+      })
     })
   }
 }
